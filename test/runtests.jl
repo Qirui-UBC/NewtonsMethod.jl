@@ -42,3 +42,12 @@ b=newtonroot(f;x₀=100.0,maxiter=5)
 end;
 
 # Testing tolerance level
+f(x) = exp(x) - 2.5
+x₁ = newtonroot(f;x₀=100.0)[1]
+x₂ = newtonroot(f;x₀=100.0,tolerance=1E-3)[1]
+x₃ = newtonroot(f;x₀=100.0,tolerance=1)[1]
+@test "tolerance" begin
+    @test norm(f(x₁)) < norm(f(x₂))
+    @test norm(f(x₁)) < norm(f(x₃))
+    @test norm(f(x₂)) < norm(f(x₃))
+end;
