@@ -22,7 +22,7 @@ end
 
 D(f) = x -> ForwardDiff.derivative(f, x)
 
-newtonroot(f; x₀, tolerance = 1E-7, maxiter = 1000) = newtonroot(f, D(f); x₀ = x₀, tolerance = 1E-7, maxiter = 1000)
+newtonroot(f; x₀, tolerance = 1E-7, maxiter = 1000) = newtonroot(f, D(f); x₀ = x₀, tolerance=tolerance, maxiter=maxiter)
 
 export newtonroot
 
