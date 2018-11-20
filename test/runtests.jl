@@ -8,7 +8,7 @@ f′(x) = 2.0*x
 
 f(x) = log(x)-1.0
 f′(x) = 1/x
-@test newtonroot(f,f′;x₀=10.0)[1] ≈ 2.71828182 atol=0.00001
+@test newtonroot(f,f′;x₀=3.0)[1] ≈ 2.71828182 atol=0.00001
 
 f(x) = exp(x) - 2.5
 f′(x) = exp(x)
