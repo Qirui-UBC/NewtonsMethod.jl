@@ -1,7 +1,5 @@
 module Newtonsmethod
 
-greet() = print("Hello World!")
-
 using Expectations, Distributions, ForwardDiff, LinearAlgebra
 
 function newtonroot(f, f′; x₀, tolerance = 1E-7, maxiter = 1000)
@@ -15,7 +13,11 @@ function newtonroot(f, f′; x₀, tolerance = 1E-7, maxiter = 1000)
         x_old = x_new
         iter = iter + 1
     end
-    return (value = x_old, normdiff = normdiff, iter = iter)
+    if iter < maxiter
+        return (value = x_old, normdiff = normdiff, iter = iter)
+    else
+        return nothing
+    end
 end
 
 D(f) = x -> ForwardDiff.derivative(f, x)
