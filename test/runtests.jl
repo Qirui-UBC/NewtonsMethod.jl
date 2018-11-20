@@ -19,7 +19,7 @@ f(x) = x^2-16.0
 @test newtonroot(f;x₀=10.0)[1] ≈ 4.0 atol=0.00001
 
 f(x) = log(x)-1.0
-@test newtonroot(f;x₀=10.0)[1] ≈ 2.71828182 atol=0.00001
+@test newtonroot(f;x₀=3.0)[1] ≈ 2.71828182 atol=0.00001
 
 f(x) = exp(x) - 2.5
 @test newtonroot(f;x₀=10.0)[1] ≈ 0.9162907318741551 atol=0.00001
@@ -30,15 +30,15 @@ f(x) = exp(x) - 2.5
 # Testing non-convergence
 f(x) = x^2+2.0
 f′(x) = 2.0*x
-@test newtonroot(f,f′;x₀=1.0)[1] == nothing
+@test newtonroot(f,f′;x₀=1.0) == nothing
 
 # Testing maxiter
 f(x) = exp(x) - 2.5
-a=newtonroot(f;x₀=100.0)[1]
-b=newtonroot(f;x₀=100.0,maxiter=5)
+a=newtonroot(f;x₀=10.0)[1]
+b=newtonroot(f;x₀=10.0,maxiter=5)
 @testset "maxiter" begin
-    @test a ≈ 0.9162907318741551 atol=0.00001\
-    @test b = nothing
+    @test a ≈ 0.9162907318741551 atol=0.00001
+    @test b == nothing
 end;
 
 # Testing tolerance level
