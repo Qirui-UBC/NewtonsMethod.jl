@@ -55,5 +55,5 @@ x₃ = newtonroot(g;x₀=10.0,tolerance=1)[1]
 end;
 
 # Give a fail test
-g(x) = exp(x) - 2.5
-@test newtonroot(g;x₀=1.0)[1] == 1.0
+# g(x) = exp(x) - 2.5
+# @test newtonroot(g;x₀=1.0)[1] == 1.0
