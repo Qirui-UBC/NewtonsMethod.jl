@@ -26,7 +26,8 @@ f(x) = exp(x) - 2.5
 @test newtonroot(f;x₀=10.0)[1] ≈ 0.9162907318741551 atol=0.00001
 
 # Testing the BigFloat
-
+f(x) = exp(x) - 2.5
+@test newtonroot(f;x₀ = BigFloat(10.0), tolerance = BigFloat(1E-10), maxiter = BigFloat(1000))[1] ≈ 0.9162907318741551 atol=0.00001
 
 # Testing non-convergence
 f(x) = x^2+2.0
