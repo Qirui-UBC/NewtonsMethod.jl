@@ -53,3 +53,7 @@ x₃ = newtonroot(g;x₀=10.0,tolerance=1)[1]
     @test norm(g(x₁)) < norm(g(x₃))
     @test norm(g(x₂)) < norm(g(x₃))
 end;
+
+# Give a fail test
+g(x) = exp(x) - 2.5
+@test newtonroot(g;x₀=1.0) == nothing
