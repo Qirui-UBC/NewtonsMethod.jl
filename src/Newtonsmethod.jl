@@ -1,6 +1,6 @@
 module Newtonsmethod
 
-using Expectations, Distributions, ForwardDiff, LinearAlgebra
+using ForwardDiff, LinearAlgebra
 
 function newtonroot(f, f′; x₀, tolerance = 1E-7, maxiter = 1000)
     # setup the algorithm
