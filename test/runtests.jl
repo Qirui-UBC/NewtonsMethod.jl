@@ -56,4 +56,4 @@ end;
 
 # Give a fail test
 g(x) = exp(x) - 2.5
-@test newtonroot(g;x₀=1.0) == 1.0
+@test newtonroot(g;x₀=1.0)[1] == 1.0
